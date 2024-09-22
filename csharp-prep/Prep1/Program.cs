@@ -1,9 +1,16 @@
 using System;
 
-class Program
+class  Program
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello Prep1 World!");
-    }
+        static void Main(string[] args)
+    
+        {
+            Console.Write("What is your first name? ");
+                string first = Console.ReadLine();
+
+            Console.Write("What is your first name? ");
+                string last = Console.ReadLine();
+
+            Console.WriteLine($"Your name is {last}, {first} {last}.");
+        }
 }
