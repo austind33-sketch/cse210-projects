@@ -1,47 +1,44 @@
 using System;
-using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        List<int> numbers = new List<int>();
-        
-        int userNumber = -1;
-        while (userNumber != 0)
-        {
-            Console.Write("Enter a number (Enter 0 when finshed inputting numbers): ");
-            
-            string userResponse = Console.ReadLine();
-            userNumber = int.Parse(userResponse);
-            
-            if (userNumber != 0)
-            {
-                numbers.Add(userNumber);
-            }
-        }
+        DisplayMessage();
 
-        int sum = 0;
-        foreach (int number in numbers)
-        {
-            sum += number;
-        }
+        string userName = AskForUserName();
+        int userNumber = AskForFavoriteNumber();
 
-        Console.WriteLine($"The total sum is: {sum}");
+        int squaredNumber = CalculateSquare(userNumber);
 
-        float average = ((float)sum) / numbers.Count;
-        Console.WriteLine($"The average is: {average}");
+        ShowResult(userName, squaredNumber);
+    }
 
-        int max = numbers[0];
+    static void DisplayMessage()
+    {
+        Console.WriteLine("Welcome to my Program!");
+    }
 
-        foreach (int number in numbers)
-        {
-            if (number > max)
-            {
-                max = number;
-            }
-        }
+    static string AskForUserName()
+    {
+        Console.Write("What is your name? ");
+        return Console.ReadLine();
+    }
 
-        Console.WriteLine($"The max is: {max}");
+    static int AskForFavoriteNumber()
+    {
+        Console.Write("What is your favorite number? ");
+        return int.Parse(Console.ReadLine());
+    }
+
+    static int CalculateSquare(int number)
+    {
+        return number * number;
+    }
+
+    static void ShowResult(string name, int squaredNumber)
+    {
+        Console.WriteLine($"{name}, the square of your favorite number is {squaredNumber}!");
+        Console.WriteLine("Have a nice day!");
     }
 }
