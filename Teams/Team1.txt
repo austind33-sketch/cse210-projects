@@ -1,0 +1,23 @@
+What does the program do?
+    -Mock moniter  product awareness by tracking the placement of their products in YouTube videos. 
+
+    -They want you to write a program that can help them work with the tens of thousands of videos 
+        they have identified as well as the comments on them.
+
+What are candidates for classes? Along with their needed Attributes and behaviors
+
+Foundation Program #1: Abstraction with YouTube Videos
+
+    Video Class: Tracks the video details (title, author, length) and stores a list of comments. It includes methods to add comments, get the number of comments, and display all the video information.
+
+    Comment Class: Tracks a comment's details (commenter_name, comment_text) and provides a method to retrieve comment information.
+
+Foundation Program #2: Encapsulation with Online Ordering
+
+    Product Class: Tracks product details (name, product_id, price, quantity) and calculates the total price.
+
+    Customer Class: Stores customer name and address, and checks if the customer is in the USA.
+
+    Address Class: Stores and manages address information (street, city, state, country).
+
+    Order Class: Stores a list of products and a customer, calculates the total cost (including shipping), and provides packing and shipping labels.
