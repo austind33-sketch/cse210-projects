@@ -35,37 +35,37 @@ class Program
 
 class Video
 {
-    private string title;
-    private string author;
-    private int length;
-    private List<Comment> comments;
+    private string _title;
+    private string _author;
+    private int _length;
+    private List<Comment> _comments;
 
     public Video(string title, string author, int length)
     {
-        this.title = title;
-        this.author = author;
-        this.length = length;
-        this.comments = new List<Comment>();
+        _title = title;
+        _author = author;
+        _length = length;
+        _comments = new List<Comment>();
     }
 
     public void AddComment(Comment comment)
     {
-        comments.Add(comment);
+        _comments.Add(comment);
     }
 
     public int GetNumberOfComments()
     {
-        return comments.Count;
+        return _comments.Count;
     }
 
     public string GetVideoInfo()
     {
-        return $"Title: {title}\nAuthor: {author}\nLength: {length} seconds";
+        return $"Title: {_title}\nAuthor: {_author}\nLength: {_length} seconds";
     }
 
     public void DisplayComments()
     {
-        foreach (Comment comment in comments)
+        foreach (Comment comment in _comments)
         {
             Console.WriteLine(comment.GetCommentInfo());
         }
@@ -74,17 +74,17 @@ class Video
 
 class Comment
 {
-    private string commenterName;
-    private string commentText;
+    private string _commenterName;
+    private string _commentText;
 
     public Comment(string commenterName, string commentText)
     {
-        this.commenterName = commenterName;
-        this.commentText = commentText;
+        _commenterName = commenterName;
+        _commentText = commentText;
     }
 
     public string GetCommentInfo()
     {
-        return $"Comment by {commenterName}: {commentText}";
+        return $"Comment by {_commenterName}: {_commentText}";
     }
 }
