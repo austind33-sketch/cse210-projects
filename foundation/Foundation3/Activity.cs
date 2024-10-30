@@ -2,18 +2,18 @@ using System;
 
 public class Activity
 {
-    private string date;
-    private int duration;
+    private string _date;
+    private int _duration;
 
-    public Activity(string date, int duration)
+    public Activity(string _date, int duration)
     {
-        this.date = date;
-        this.duration = duration;
+        this._date = _date;
+        this._duration = duration;
     }
 
     public int Duration
     {
-        get { return duration; }
+        get { return _duration; }
     }
 
     public virtual double GetDistance() { return 0; }
@@ -22,6 +22,6 @@ public class Activity
 
     public virtual string GetSummary()
     {
-        return $"{date} {GetType().Name} ({duration} min): Distance {GetDistance():0.0} km, Speed {GetSpeed():0.0} kph, Pace {GetPace():0.0} min per km";
+        return $"{_date} {GetType().Name} ({_duration} min): Distance {GetDistance():0.0} km, Speed {GetSpeed():0.0} kph, Pace {GetPace():0.0} min per km";
     }
 }

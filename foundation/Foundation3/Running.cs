@@ -2,14 +2,14 @@ using System;
 
 public class Running : Activity
 {
-    private double distance;
+    private double _distance;
 
     public Running(string date, int duration, double distance) : base(date, duration)
     {
-        this.distance = distance;
+        this._distance = distance;
     }
 
-    public override double GetDistance() { return distance; }
-    public override double GetSpeed() { return (distance / Duration) * 60; }
-    public override double GetPace() { return Duration / distance; }
+    public override double GetDistance() { return _distance; }
+    public override double GetSpeed() { return (_distance / Duration) * 60; }
+    public override double GetPace() { return Duration / _distance; }
 }
