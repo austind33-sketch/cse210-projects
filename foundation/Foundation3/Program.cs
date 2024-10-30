@@ -1,82 +1,20 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        bool runAgain = true;
-
-        while (runAgain)
+        List<Activity> activities = new List<Activity>
         {
-            Console.WriteLine("Enter the book name (e.g., Proverbs):");
-            string book = Console.ReadLine();
+            new Running("03 Nov 2022", 30, 4.8),
+            new Cycling("03 Nov 2022", 45, 20),
+            new Swimming("03 Nov 2022", 25, 40)
+        };
 
-            Console.WriteLine("Enter the chapter (e.g., 3):");
-            int chapter = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the starting verse (e.g., 5):");
-            int startVerse = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the ending verse (if applicable, or press Enter to skip):");
-            string endVerseInput = Console.ReadLine();
-            int endVerse = string.IsNullOrEmpty(endVerseInput) ? startVerse : int.Parse(endVerseInput);
-
-            Console.WriteLine("Enter the scripture text:");
-            string scriptureText = Console.ReadLine();
-
-            Scripture scripture = new Scripture(new Reference(book, chapter, startVerse, endVerse), scriptureText);
-
-            while (true)
-            {
-                SafeClearConsole();
-                scripture.Display();
-
-                if (scripture.IsFullyHidden())
-                {
-                    Console.WriteLine("\nAll words are hidden. Would you like to:");
-                    Console.WriteLine("1. Study a new verse");
-                    Console.WriteLine("2. Exit the program");
-                    string choice = Console.ReadLine();
-
-                    if (choice == "1")
-                    {
-                        SafeClearConsole();
-                        break;
-                    }
-                    else if (choice == "2")
-                    {
-                        runAgain = false;
-                        break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("\nPress Enter to hide words or type 'quit' to exit.");
-                    string input = Console.ReadLine();
-
-                    if (input.ToLower() == "quit")
-                    {
-                        runAgain = false;
-                        break;
-                    }
-
-                    scripture.HideRandomWords();
-                }
-            }
-        }
-
-        Console.WriteLine("\nProgram ended.");
-    }
-
-    static void SafeClearConsole()
-    {
-        try
+        foreach (var activity in activities)
         {
-            Console.Clear();
-        }
-        catch (IOException)
-        {
-            Console.WriteLine("(Unable to clear the console in this environment. Proceeding without clearing.)");
+            Console.WriteLine(activity.GetSummary());
         }
     }
 }
